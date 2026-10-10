@@ -4,6 +4,7 @@ import bs4
 from urllib.parse import urljoin
 from pathlib import Path
 
+# TODO: connect with widget from website and feed in some text from website
 def download_video_links(search_query : str):
     watch_links = []
     video_links_file = Path("video_links.txt")
@@ -44,4 +45,5 @@ def download_video_links(search_query : str):
 """
 search_query = "Let it happen by Tame Impala"
 download_video_links(search_query)
+# video_links.txt has been updated
 """
