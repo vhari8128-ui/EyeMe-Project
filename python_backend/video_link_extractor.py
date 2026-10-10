@@ -1,8 +1,8 @@
-import re
-from playwright.sync_api import sync_playwright
 import bs4
-from urllib.parse import urljoin
+from playwright.sync_api import sync_playwright
 from pathlib import Path
+import re
+from urllib.parse import urljoin
 
 # TODO: connect with widget from website and feed in some text from website
 def download_video_links(search_query : str):
