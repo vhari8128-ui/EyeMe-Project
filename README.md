@@ -50,9 +50,19 @@ lib/                    db (SQLite via node:sqlite), auth, sanitize, themes, you
 
 ## Going live
 
-- The app uses SQLite and stores uploads on local disk, so host it somewhere with a **persistent
-  disk** for the database and pictures: a VPS, Railway, Render, or Fly.io with a volume mounted at `data/`. (Vercel's serverless
-  hosting won't keep the files.)
-- Run `npm run build && npm start` behind HTTPS.
-- Before opening it to the public: add moderation (report button, admin tools), email
-  verification.
+`index.html` in this repo is the landing page published by GitHub Pages
+(https://vhari8128-ui.github.io/EyeMe-Project/). Its buttons link to the live app, whose address is
+set in `EYEME_URL` near the bottom of `index.html`.
+
+The app itself needs a server with a persistent disk (GitHub Pages can only host static files).
+`render.yaml` sets it up on [Render](https://render.com):
+
+1. Click **[Deploy to Render](https://render.com/deploy?repo=https://github.com/vhari8128-ui/EyeMe-Project)**
+   and sign in with GitHub.
+2. Approve the plan. A persistent disk needs a paid instance; Render's free plan can't keep the database.
+3. When it's live, check the service URL. If it isn't `https://eyeme.onrender.com`, update `EYEME_URL`
+   in `index.html`.
+
+Every push to `main` redeploys. The database and pictures live on the disk at `/var/data` (`DATA_DIR`).
+
+Before opening it to the public: add moderation (report button, admin tools) and email verification.

@@ -2,9 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EyeMe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EyeMe — a place for friends</title>
+    <meta name="description" content="Make your profile look however you want, pick a song for it, and meet people.">
+    <style>
+        :root { --blue: #336699; --blue-light: #6699cc; --blue-pale: #e5ecf9; --orange: #ff6600; }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--blue-pale);
+            color: #222;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        .topbar {
+            display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+            padding: 10px 24px; background: var(--blue); color: #fff;
+        }
+        .logo { color: #fff; font-size: 26px; font-weight: bold; letter-spacing: -1px; }
+        .logo span { color: var(--orange); }
+        .tagline { color: #cde; font-style: italic; }
+        .topbar nav { margin-left: auto; display: flex; gap: 16px; }
+        .topbar nav a { color: #fff; font-weight: bold; }
+
+        main { max-width: 960px; margin: 32px auto; padding: 0 16px; }
+        .hero {
+            background: #fff; border: 1px solid var(--blue-light);
+            padding: 48px 24px; text-align: center; margin-bottom: 24px;
+        }
+        .hero h1 { color: var(--blue); font-size: 32px; margin: 0 0 12px; }
+        .hero p { font-size: 16px; color: #555; margin: 0 0 28px; }
+        .btn {
+            display: inline-block; background: var(--orange); color: #fff;
+            font-weight: bold; font-size: 18px; padding: 12px 28px;
+            border-radius: 4px; text-decoration: none; margin: 4px;
+        }
+        .btn:hover { filter: brightness(1.1); }
+        .btn-secondary { background: var(--blue-light); }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+        .box { background: #fff; border: 1px solid var(--blue-light); }
+        .box h2 { margin: 0; background: var(--blue-light); color: #fff; font-size: 14px; padding: 6px 10px; }
+        .box p { margin: 0; padding: 12px; line-height: 1.5; }
+
+        footer { text-align: center; color: #777; font-size: 12px; margin: 32px 0; }
+        footer a { color: var(--blue); }
+    </style>
 </head>
 <body>
+    <header class="topbar">
+        <div class="logo">EyeMe<span>.</span></div>
+        <span class="tagline">a place for friends</span>
+        <nav>
+            <a class="app-link" href="#" data-path="/login">Log in</a>
+            <a class="app-link" href="#" data-path="/signup">Sign up</a>
+        </nav>
+    </header>
 
+    <main>
+        <section class="hero">
+            <h1>EyeMe is a place for friends.</h1>
+            <p>Make your profile look however you want, pick a song for it, and meet people.</p>
+            <a class="btn app-link" href="#" data-path="/signup">Join EyeMe!</a>
+            <a class="btn btn-secondary app-link" href="#" data-path="/login">Log in</a>
+        </section>
+
+        <section class="features">
+            <div class="box">
+                <h2>🎨 Your page, your way</h2>
+                <p>Write your own HTML and CSS, or start from a theme like Emo Night, Glitter Pink, or Retro Terminal.</p>
+            </div>
+            <div class="box">
+                <h2>🎵 A song for your profile</h2>
+                <p>Paste any YouTube link. It plays when friends visit your page and keeps going while they browse.</p>
+            </div>
+            <div class="box">
+                <h2>👯 Top 8 &amp; comments</h2>
+                <p>Add friends, show off your Top 8, and leave comments on each other's pages.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="https://github.com/vhari8128-ui/EyeMe-Project">EyeMe on GitHub</a>
+    </footer>
+
+    <script>
+        // Address of the live EyeMe app. Change this if Render gives your service a different URL.
+        var EYEME_URL = 'https://eyeme.onrender.com';
+
+        document.querySelectorAll('.app-link').forEach(function (link) {
+            link.href = EYEME_URL + link.dataset.path;
+        });
+    </script>
 </body>
 </html>
